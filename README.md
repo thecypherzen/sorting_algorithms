@@ -29,4 +29,5 @@ Here is a detailed list of all files in the repo and their description.
 | SN | File | Description                                   |
 |----|------|-----------------------------------------------|
 | 1. | [README.md](https://github.com/thecypherzen/sorting_algorithms/README.md) |  Repo readme markdown file. |
-| 2. | Pending   |    |
+| 2. | [sort.h](https://github.com/thecypherzen/sorting_algorithms/sort.h) | Project header file listing all prototypes, data structures and standard libraries.  |
+| 3. | [0-bubble_sort.c](https://github.com/thecypherzen/sorting_algorithms/0-bubble_sort.c)  | A function that sorts an array of integers in ascending order using the **Bubble sort algorithm**. <ul><li>It's to also print the array after each time two elements are swapped.</li><li>Associated with the file **[0-O]**(https://github.com/thecypherzen/sorting_algorithms/0-O) which contains the big O notations of the time complexity of the *Bubble sort algorithm*, with 1 notation per line:<ul><li>in the best case(Omega)</li><li>in the average case, and </li>in the worst case(O)</ul></li></ul> |
