@@ -1,12 +1,12 @@
 #include "sort.h"
 
 /**
- * bubble_sort - implements the selection sort algorithm
+ * selection_sort - implements the selection sort algorithm
  * @array: an array of integers
  * @size: number of elements in array
  * Description:
  * - sorts elements of array in ascending order by selection
- * 		sort algorithm.
+ *		sort algorithm.
  * - prints out the array each time there is a swap of elements.
  * Return: void
  */
