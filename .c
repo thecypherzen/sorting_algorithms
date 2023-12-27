@@ -9,7 +9,7 @@
 int main(void)
 {
 	listint_t *list;
-	int array[] = {19,17,12,3,0,-10,-129};
+	int array[] = {10, 10, 10, 10, 10};
 	size_t n = sizeof(array) / sizeof(array[0]);
 
 	list = create_listint(array, n);

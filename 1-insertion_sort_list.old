@@ -8,36 +8,40 @@
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *curr, *runner;
+	listint_t *curr, *runner, *temp, *i_node;
 
 	if (!list || !(*list) || !(*list)->next)
 		return;
 
 	curr = *list;
-	while (curr)
+	while (curr->next)
 	{
 		runner = curr->next;
 		while (runner && (runner->n > curr->n))
-		{
-			curr = runner;
 			runner = runner->next;
-		}
-		if (runner && (curr->n > runner->n))
+		if (runner && (runner->n > curr-> n))
 		{
+			/* get node to insert */
+			i_node = curr;
+			while (i_node->prev && i_node->prev->n > runner->n)
+				i_node = i_node->prev;
+			temp = runner;
+			runner = runner->next;
+
 			/* detatch node to insert */
-			runner->prev->next = runner->next;
-			if (runner->next)
-				runner->next->prev = runner->prev;
+			if (temp->prev)
+				temp->prev->next = runner;
+			if (runner)
+				runner->prev = temp->prev;
 
 			/* insertion */
-			runner->prev = curr->prev;
-			runner->next = curr;
-			if (curr->prev)
-				curr->prev->next = runner;
+			temp->prev = i_node->prev;
+			temp->next = i_node;
+			if (i_node->prev)
+				i_node->prev->next = temp;
 			else
-				*list = runner;
-			curr->prev = runner;
-			curr = *list;
+				*list = temp;
+			i_node->prev = temp;
 			print_list(*list);
 		}
 		else
