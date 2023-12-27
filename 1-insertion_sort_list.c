@@ -14,12 +14,12 @@ void insertion_sort_list(listint_t **list)
 		return;
 
 	curr = *list;
-	while(curr->next)
+	while (curr->next)
 	{
 		runner = curr->next;
 		while (runner && (runner->n > curr->n))
 			runner = runner->next;
-		if (runner)
+		if (runner && (runner->n > curr-> n))
 		{
 			/* get node to insert */
 			i_node = curr;
