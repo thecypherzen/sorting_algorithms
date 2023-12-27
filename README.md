@@ -6,7 +6,7 @@ The - **0x1B. C - Sorting algorithms & Big O** seeks to introduce various **sort
 3. What a stable sorting and unstable algorithm is.
 
 
-### Repo Details ###
+### Folder Details ###
 - **Date Created:** Wed Dec 20 2023.
 - **Author:** [William Inyam](https.//github.com/thecypherzen).
 - **Project Timeline:**
