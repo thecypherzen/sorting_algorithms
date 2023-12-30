@@ -27,6 +27,9 @@ listint_t *create_listint(const int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
+void quick_sort(int *array, size_t size);
+void _quick_sort(int *array, size_t sz, ssize_t strt, ssize_t end);
+ssize_t _partition(int *array, size_t sz, ssize_t strt, ssize_t end);
 void selection_sort(int *array, size_t size);
 
 
