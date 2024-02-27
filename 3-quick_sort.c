@@ -1,5 +1,5 @@
 #include "sort.h"
-
+int n = 1;
 /**
  * quick_sort - sorts an array using the quick sort algorithm
  * in ascending order
@@ -37,10 +37,13 @@ void _quick_sort(int *array, size_t sz, ssize_t strt, ssize_t end)
 {
 	ssize_t sorted_pos;
 
+	printf("\n[%d]=> start[%ld] | end[%ld]\n", n++, strt, end);
+	printf("   ");
+	print_array(array, sz);
 	if (strt >= end)
 		return;
 	sorted_pos = _partition(array, sz, strt, end);
-	_quick_sort(array, sz, strt, sorted_pos);
+	_quick_sort(array, sz, strt, sorted_pos - 1);
 	_quick_sort(array, sz, sorted_pos + 1, end);
 }
 
@@ -58,27 +61,33 @@ void _quick_sort(int *array, size_t sz, ssize_t strt, ssize_t end)
 ssize_t _partition(int *array, size_t sz, ssize_t strt, ssize_t end)
 {
 	int temp;
-	ssize_t pivot;
+	ssize_t pivot = array[end], s_pos, runner, e;
 
-	pivot = end, --end;
-	while (strt < end)
+	s_pos = runner = strt;
+	e = end - 1;
+	while (runner <= e && s_pos <= e)
 	{
-		while (array[strt] <= array[pivot] && strt < end)
-			strt++;
-		while (array[end] >= array[pivot] && strt < end)
-			end--;
-		if (strt < end)
+		printf("   runner: %ld(%d) | s_pos: %ld(%d) | pivot: %ld\n",
+				runner, array[runner], s_pos, array[s_pos], pivot);
+		while (runner <= e && array[runner] >= pivot)
+				runner++;
+		while (s_pos <= e && array[s_pos] <= pivot)
+				s_pos++;
+
+
+		printf("   runner: %ld(%d) | s_pos: %ld(%d) | pivot: %ld\n",
+				runner, array[runner], s_pos, array[s_pos], pivot);
+		if (s_pos < runner && runner < e)
 		{
-			temp = array[strt];
-			array[strt] = array[end], array[end] = temp;
+			temp = array[s_pos];
+			array[s_pos] = array[runner];
+			array[runner] = temp;
+			printf("   ");
 			print_array(array, sz);
 		}
 	}
-	if (strt == end && array[end] > array[pivot])
-	{
-		temp = array[end];
-		array[end] = array[pivot], array[pivot] = temp;
-		print_array(array, sz);
-	}
-	return (end);
+	printf("   s_pos last: %ld | runner last: %ld\n", s_pos, runner);
+	printf("   ");
+	print_array(array, sz);
+	return (s_pos);
 }
